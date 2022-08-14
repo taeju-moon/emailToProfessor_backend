@@ -22,6 +22,7 @@ const formSchema = new mongoose.Schema({
   },
   stars: {
     type: Number,
+    default: 0,
   },
 });
 
