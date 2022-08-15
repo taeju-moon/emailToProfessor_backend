@@ -20,7 +20,7 @@ const formRouter = require("./routes/form");
 const userRouter = require("./routes/user");
 const authRouter = require("./routes/auth");
 
-app.use("/form", formRouter);
+app.use("/forms", formRouter);
 app.use("/users", userRouter);
 app.use("/auth", authRouter);
 

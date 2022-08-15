@@ -6,16 +6,16 @@ const {
   updateUser,
   deleteUser,
 } = require("../controllers/user");
-const { isAbleToChangeUser } = require("../middlewares/verify");
+const { isAdmin, isAbleToChange } = require("../middlewares/verify");
 
-router.get("/", getUsers);
+router.get("/", isAdmin, getUsers);
 
 router.get("/:id", getUser);
 
 router.post("/", register);
 
-router.patch("/:id", isAbleToChangeUser, updateUser);
+router.patch("/:id", isAbleToChange, updateUser);
 
-router.delete("/:id", isAbleToChangeUser, deleteUser);
+router.delete("/:id", isAbleToChange, deleteUser);
 
 module.exports = router;

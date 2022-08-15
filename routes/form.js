@@ -6,15 +6,16 @@ const {
   updateForm,
   deleteForm,
 } = require("../controllers/form");
+const { isLoggedIn } = require("../middlewares/verify");
 
 router.get("/", getForms);
 
 router.get("/:id", getForm);
 
-router.post("/", createForm);
+router.post("/", isLoggedIn, createForm);
 
-router.put("/:id", updateForm);
+router.patch("/:id", isLoggedIn, updateForm);
 
-router.delete("/:id", deleteForm);
+router.delete("/:id", isLoggedIn, deleteForm);
 
 module.exports = router;

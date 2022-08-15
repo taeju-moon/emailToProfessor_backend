@@ -28,7 +28,7 @@ const isAdmin = (req, res, next) => {
   });
 };
 
-const isAbleToChangeUser = (req, res, next) => {
+const isAbleToChange = (req, res, next) => {
   const token = req.cookies.professorToken;
   User.findByToken(token, (err, user) => {
     if (err) throw err;
@@ -45,4 +45,4 @@ const isAbleToChangeUser = (req, res, next) => {
   });
 };
 
-module.exports = { isLoggedIn, isAdmin, isAbleToChangeUser };
+module.exports = { isLoggedIn, isAdmin, isAbleToChange };
