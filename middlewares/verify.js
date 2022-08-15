@@ -36,7 +36,7 @@ const isAbleToChangeUser = (req, res, next) => {
       return res
         .status(403)
         .json({ status: "fail", message: "로그인이 필요합니다." });
-    if (user.role !== "admin" || user.user_id !== req.params.id) {
+    if (user.role !== "admin" && user.user_id !== req.params.id) {
       return res
         .status(403)
         .json({ status: "fail", message: "접근 권한이 없습니다." });

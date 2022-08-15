@@ -21,7 +21,7 @@ const userRouter = require("./routes/user");
 const authRouter = require("./routes/auth");
 
 app.use("/form", formRouter);
-app.use("/user", userRouter);
+app.use("/users", userRouter);
 app.use("/auth", authRouter);
 
 app.listen(process.env.PORT, () =>
