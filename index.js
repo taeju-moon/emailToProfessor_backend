@@ -4,6 +4,18 @@ const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
+const cors = require("cors");
+
+const corsOptions = {
+  origin:
+    process.env.NODE_ENV === "production"
+      ? "http://localhost:30000"
+      : "http://localhost:3000",
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(cookieParser());
 
@@ -23,6 +35,11 @@ const authRouter = require("./routes/auth");
 app.use("/forms", formRouter);
 app.use("/users", userRouter);
 app.use("/auth", authRouter);
+
+//404
+app.all("*", (req, res, next) => {
+  res.status(404).json({ status: "fail", message: "404 Not Found" });
+});
 
 app.listen(process.env.PORT, () =>
   console.log("listening on port :" + process.env.PORT)
