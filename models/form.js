@@ -26,4 +26,8 @@ const formSchema = new mongoose.Schema({
   },
 });
 
+schema.pre("save", function (next) {
+  next();
+});
+
 module.exports = mongoose.model("Form", formSchema);

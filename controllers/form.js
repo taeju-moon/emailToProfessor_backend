@@ -1,9 +1,11 @@
-export const getForms = (req, res) => {};
+const getForms = (req, res) => {};
 
-export const getForm = (req, res) => {};
+const getForm = (req, res) => {};
 
-export const createForm = (req, res) => {};
+const createForm = (req, res) => {};
 
-export const updateForm = (req, res) => {};
+const updateForm = (req, res) => {};
 
-export const deleteForm = (req, res) => {};
+const deleteForm = (req, res) => {};
+
+module.exports = { getForms, getForm, createForm, updateForm, deleteForm };
