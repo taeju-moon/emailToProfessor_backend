@@ -7,14 +7,15 @@ const {
   deleteForm,
 } = require("../controllers/form");
 const { isLoggedIn } = require("../middlewares/verify");
+const sanitizer = require("../middlewares/sanitizer");
 
 router.get("/", getForms);
 
 router.get("/:id", getForm);
 
-router.post("/", isLoggedIn, createForm);
+router.post("/", sanitizer, isLoggedIn, createForm);
 
-router.patch("/:id", isLoggedIn, updateForm);
+router.patch("/:id", sanitizer, isLoggedIn, updateForm);
 
 router.delete("/:id", isLoggedIn, deleteForm);
 

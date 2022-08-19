@@ -2,8 +2,21 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
+const morgan = require("morgan");
+const helmet = require("helmet");
+const hpp = require("hpp");
 require("dotenv").config();
 
+//helmet&morgan
+if (process.env.NODE_ENV === "production") {
+  app.use(morgan("combined"));
+  app.use(helmet({ contentSecurityPolicy: false }));
+  app.use(hpp());
+} else {
+  app.use(morgan("dev"));
+}
+
+//CORS
 const cors = require("cors");
 
 const corsOptions = {
