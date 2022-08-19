@@ -7,14 +7,16 @@ const {
   deleteUser,
 } = require("../controllers/user");
 const { isAdmin, isAbleToChange } = require("../middlewares/verify");
+const sanitizer = require("../middlewares/sanitizer");
+const csrfProtection = require("../middlewares/csrf");
 
 router.get("/", isAdmin, getUsers);
 
 router.get("/:id", getUser);
 
-router.post("/", register);
+router.post("/", sanitizer, csrfProtection, register);
 
-router.patch("/:id", isAbleToChange, updateUser);
+router.patch("/:id", sanitizer, csrfProtection, isAbleToChange, updateUser);
 
 router.delete("/:id", isAbleToChange, deleteUser);
 
