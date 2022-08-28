@@ -1,5 +1,5 @@
-const Form = require("../models/Form");
-const User = require("../models/User");
+const Form = require("../models/form");
+const User = require("../models/user");
 
 const getForms = (req, res) => {
   Form.find()
