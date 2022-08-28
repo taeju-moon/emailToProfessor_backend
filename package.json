@@ -24,5 +24,15 @@
     "mongoose": "^6.5.2",
     "morgan": "^1.10.0",
     "sanitize-html": "^2.7.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.18.9",
+    "@babel/core": "^7.18.9",
+    "@babel/node": "^7.18.9",
+    "@babel/preset-env": "^7.18.9"
+  },
+  "engines": {
+    "node": ">=12"
   }
 }
+
