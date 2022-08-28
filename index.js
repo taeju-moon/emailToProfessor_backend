@@ -54,6 +54,6 @@ app.all("*", (req, res, next) => {
   res.status(404).json({ status: "fail", message: "404 Not Found" });
 });
 
-app.listen(process.env.PORT, () =>
-  console.log("listening on port :" + process.env.PORT)
+app.listen(process.env.BACKEND_PORT, () =>
+  console.log("listening on BACKEND_PORT :" + process.env.BACKEND_PORT)
 );
