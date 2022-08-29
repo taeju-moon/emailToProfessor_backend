@@ -45,6 +45,9 @@ const formRouter = require("./routes/form");
 const userRouter = require("./routes/user");
 const authRouter = require("./routes/auth");
 
+app.get("/", (req, res) => {
+  res.send("Hello World! 헬로 워드");
+});
 app.use("/forms", formRouter);
 app.use("/users", userRouter);
 app.use("/auth", authRouter);
