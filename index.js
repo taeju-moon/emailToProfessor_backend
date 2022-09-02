@@ -22,8 +22,8 @@ const cors = require("cors");
 const corsOptions = {
   origin:
     process.env.NODE_ENV === "production"
-      ? "http://3.35.11.39:3000"
-      : "http://localhost:3000",
+      ? process.env.USING_URL_PROD
+      : process.env.USING_URL_DEV,
   credentials: true,
 };
 
