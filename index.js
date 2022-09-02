@@ -22,7 +22,7 @@ const cors = require("cors");
 const corsOptions = {
   origin:
     process.env.NODE_ENV === "production"
-      ? "http://localhost:3000"
+      ? "http://3.35.11.39:3000"
       : "http://localhost:3000",
   credentials: true,
 };
