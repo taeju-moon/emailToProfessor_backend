@@ -14,9 +14,9 @@ router.get("/", isAdmin, getUsers);
 
 router.get("/:id", getUser);
 
-router.post("/", sanitizer, csrfProtection, register);
+router.post("/", sanitizer, register);
 
-router.patch("/:id", sanitizer, csrfProtection, isAbleToChange, updateUser);
+router.patch("/:id", sanitizer, isAbleToChange, updateUser);
 
 router.delete("/:id", isAbleToChange, deleteUser);
 

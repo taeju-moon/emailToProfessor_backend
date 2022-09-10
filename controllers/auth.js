@@ -9,7 +9,7 @@ const login = (req, res) => {
       });
     }
     user.comparePassword(req.body.password, (err, isMatch) => {
-      if (String(isMatch) !== "true") {
+      if (!isMatch) {
         return res.status(400).json({
           status: "fail",
           message: "비밀번호가 틀렸습니다.",

@@ -38,16 +38,19 @@ userSchema.pre("save", function (next) {
       bcrypt.hash(user.password, salt, function (err, hashedPW) {
         if (err) return next(err);
         user.password = hashedPW;
+        next();
       });
     });
+  } else {
+    next();
   }
-  next();
 });
 
 userSchema.methods.comparePassword = function (plainPassword, callback) {
   bcrypt
     .compare(plainPassword, this.password)
     .then((isMatch) => {
+      console.log(isMatch);
       callback(null, isMatch);
     })
     .catch((err) => callback(err));

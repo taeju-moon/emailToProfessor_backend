@@ -7,6 +7,10 @@ const categorySchema = new mongoose.Schema({
     unique: true,
     description: "category name is required and unique",
   },
+  id: {
+    type: Number,
+    unique: true,
+  },
 });
 
 const Category = mongoose.model("Category", categorySchema);
