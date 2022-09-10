@@ -19,8 +19,10 @@ const login = (req, res) => {
           if (err) return res.status(400).send(err);
           res.status(200).json({
             status: "success",
-            user_id: user.user_id,
-            token: user.token,
+            data: {
+              user_id: user.user_id,
+              token: user.token,
+            },
           });
         });
       }
