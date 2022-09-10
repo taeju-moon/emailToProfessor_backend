@@ -17,10 +17,11 @@ const login = (req, res) => {
       } else {
         user.generateToken((err, user) => {
           if (err) return res.status(400).send(err);
-          res
-            .cookie("x_auth", user.token)
-            .status(200)
-            .json({ status: "success", user_id: user.user_id });
+          res.status(200).json({
+            status: "success",
+            user_id: user.user_id,
+            token: user.token,
+          });
         });
       }
     });
