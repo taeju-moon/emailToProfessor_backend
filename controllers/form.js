@@ -1,5 +1,5 @@
 const Form = require("../models/form");
-const User = require("../models/user");
+const { Category } = require("../models/category");
 
 const getForms = (req, res) => {
   Form.find()
@@ -17,10 +17,7 @@ const getForm = (req, res) => {
 
 const createForm = async (req, res) => {
   const form = new Form(req.body);
-  await User.findByToken(req.cookies.professorToken, function (err, user) {
-    if (err) throw Error(err);
-    form.writer = user.user_id;
-  });
+  form.category = await Category.findOne({ name: req.body.category });
   form
     .save()
     .then((result) =>

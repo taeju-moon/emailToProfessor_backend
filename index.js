@@ -44,6 +44,7 @@ mongoose
 const formRouter = require("./routes/form");
 const userRouter = require("./routes/user");
 const authRouter = require("./routes/auth");
+const categoryRouter = require("./routes/category");
 
 app.get("/", (req, res) => {
   res.send("Hello World! 헬로 워드");
@@ -51,6 +52,7 @@ app.get("/", (req, res) => {
 app.use("/forms", formRouter);
 app.use("/users", userRouter);
 app.use("/auth", authRouter);
+app.use("/category", categoryRouter);
 
 //404
 app.all("*", (req, res, next) => {

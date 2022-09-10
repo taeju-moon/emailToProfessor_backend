@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { categorySchema } = require("./category");
 
 const formSchema = new mongoose.Schema({
   title: {
@@ -12,16 +13,12 @@ const formSchema = new mongoose.Schema({
     description: "content is required",
   },
   category: {
-    type: String,
+    type: categorySchema,
     required: true,
     description: "category is required",
   },
-  tags: {
-    type: [String],
-  },
   writer: {
     type: String,
-    ref: "User",
   },
   stars: {
     type: Number,
