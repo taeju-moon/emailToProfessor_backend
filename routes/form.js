@@ -13,7 +13,7 @@ router.get("/", getForms);
 
 router.get("/:id", getForm);
 
-router.post("/", sanitizer, isLoggedIn, createForm);
+router.post("/", sanitizer, createForm);
 
 router.patch("/:id", sanitizer, isLoggedIn, updateForm);
 
