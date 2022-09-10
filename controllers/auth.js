@@ -18,7 +18,7 @@ const login = (req, res) => {
         user.generateToken((err, user) => {
           if (err) return res.status(400).send(err);
           res
-            .cookie("professorToken", user.token)
+            .cookie("x_auth", user.token)
             .status(200)
             .json({ status: "success", user_id: user.user_id });
         });

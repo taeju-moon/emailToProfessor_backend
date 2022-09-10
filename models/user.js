@@ -66,7 +66,6 @@ userSchema.methods.generateToken = function (callback) {
     process.env.SECRET_TOKEN
   );
   user.token = token;
-  console.log(user);
   user
     .save()
     .then(() => callback(null, user))
