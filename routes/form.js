@@ -15,7 +15,7 @@ router.get("/:id", getForm);
 
 router.post("/", sanitizer, createForm);
 
-router.patch("/:id", sanitizer, isLoggedIn, updateForm);
+router.patch("/:id", sanitizer, updateForm);
 
 router.delete("/:id", isLoggedIn, deleteForm);
 
