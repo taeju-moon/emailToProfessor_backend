@@ -45,6 +45,7 @@ const formRouter = require("./routes/form");
 const userRouter = require("./routes/user");
 const authRouter = require("./routes/auth");
 const categoryRouter = require("./routes/category");
+const countRouter = require("./routes/count");
 
 app.get("/", (req, res) => {
   res.send("Hello World! 헬로 워드");
@@ -53,6 +54,7 @@ app.use("/forms", formRouter);
 app.use("/users", userRouter);
 app.use("/auth", authRouter);
 app.use("/category", categoryRouter);
+app.use("/count", countRouter);
 
 //404
 app.all("*", (req, res, next) => {
